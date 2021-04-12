@@ -49,7 +49,17 @@ src/main/resources/META-INF/persistence.xml
 </persistence>
 ```
 
-5. Create orm.xml: Exists two ways to implements the anotate the entities of a columns:
+5. Create database statson;
+
+6. Change owner to usuario, grant privileges:
+> ALTER DATABASE statson OWNER TO usuario;
+> GRANT ALL ON DATABASE statson TO usuario;
+
+7. Load tablas.sql
+
+8. Create folders Docs, Entities, Main and Properties
+   
+8. Create orm.xml: Exists two ways to implements the anotate the entities of a columns:
 
     1. with orm.xml, here you use a mapping resource that you specify your content
 
@@ -101,7 +111,7 @@ src/main/resources/META-INF/persistence.xml
     }    
     ```
 
-6. Create hibernate.cfg.xml //OPTIONAL To use other configuration
+9. Create hibernate.cfg.xml //OPTIONAL To use other configuration
 
 ```
 src/main/resources/hibernate.cfg.xml
