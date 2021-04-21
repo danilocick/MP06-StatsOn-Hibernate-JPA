@@ -1,19 +1,32 @@
 package Entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table( name = "jugador")
-public class Jugador extends Persona{
+@Inheritance(strategy= InheritanceType.JOINED)
+public class Jugador {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_persona")
+    private  int id_persona;
+
+//    @Column(name="id_equipo")
+//    private int equipo;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="id_equipo")
+    private Equipo equipo;
+
+    @Column(name = "nom")
+    private String nom;
     @Column(name = "dorsal")
     private int dorsal;
     @Column(name = "patrocinador")
-    private int patrocinador;
+    private String patrocinador;
 
-    @ManyToOne()
-    @JoinColumn(name = "num_entidad_fiscal")
-    private Empresa empresa;
 
+    //GETTERS AND SETTERS
     public int getDorsal() {
         return dorsal;
     }
@@ -22,19 +35,43 @@ public class Jugador extends Persona{
         this.dorsal = dorsal;
     }
 
-    public int getPatrocinador() {
+    public String getPatrocinador() {
         return patrocinador;
     }
 
-    public void setPatrocinador(int patrocinador) {
+    public void setPatrocinador(String patrocinador) {
         this.patrocinador = patrocinador;
     }
 
-    public Empresa getEmpresa() {
-        return empresa;
+    public int getId_persona() {
+        return id_persona;
     }
 
-    public void setEmpresa(Empresa empresa) {
-        this.empresa = empresa;
+    public void setId_persona(int id_persona) {
+        this.id_persona = id_persona;
+    }
+
+//    public int getEquipo() {
+//        return equipo;
+//    }
+//
+//    public void setEquipo(int equipo) {
+//        this.equipo = equipo;
+//    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public Equipo getEquipo() {
+        return equipo;
+    }
+
+    public void setEquipo(Equipo equipo) {
+        this.equipo = equipo;
     }
 }

@@ -9,23 +9,18 @@ CREATE TABLE empresa (
     presupuesto   	integer
 );
 
-CREATE TABLE persona (
+CREATE TABLE jugador (
     id_persona      	integer PRIMARY KEY,
     id_equipo 		integer NOT NULL,
     nom   		varchar(40) NOT NULL,
+    dorsal      	integer NOT NULL,
+    patrocinador       integer,
+
+    FOREIGN KEY (patrocinador)
+      REFERENCES empresa (num_entidad_fiscal)
     FOREIGN KEY (id_equipo)
       REFERENCES equipo (id_equipo)
 );
-
-CREATE TABLE jugador (
-    dorsal      	integer NOT NULL,
-    patrocinador       integer,
-    FOREIGN KEY (patrocinador)
-      REFERENCES empresa (num_entidad_fiscal)
-    
-)INHERITS(persona);
-
-CREATE TABLE entrenador ()INHERITS(persona);
 
 CREATE TABLE partido (
     id_partido      	integer PRIMARY KEY,

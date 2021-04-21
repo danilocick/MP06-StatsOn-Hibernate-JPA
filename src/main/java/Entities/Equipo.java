@@ -12,6 +12,17 @@ public class Equipo {
     @Column(name = "nom")
     private  String nom;
 
+    @OneToMany(mappedBy = "equipo")
+    private List<Jugador> personas;
+
+
+    public List<Jugador> getPersonas() {
+        return personas;
+    }
+
+    public void setPersonas(List<Jugador> personas) {
+        this.personas = personas;
+    }
 
     public int getId_equipo() {
         return id_equipo;

@@ -66,7 +66,7 @@ src/main/resources/META-INF/persistence.xml
     ```
     src/main/resources/META-INF/orm.xml
     ```
-    ```
+    ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <entity-mappings version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd">
         <description>The minimal mappings for a persistent entity in XML.</description>
@@ -93,7 +93,7 @@ src/main/resources/META-INF/persistence.xml
 
     2. in an entity add the following content
 
-    ```
+    ```java
     @Entity
     @Table( name = "autors" )
     public class Autor implements Serializable {
@@ -116,7 +116,7 @@ src/main/resources/META-INF/persistence.xml
 ```
 src/main/resources/hibernate.cfg.xml
 ```
-```
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE hibernate-configuration SYSTEM
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">

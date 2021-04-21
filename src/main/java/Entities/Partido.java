@@ -17,6 +17,8 @@ public class Partido {
     private Date fecha;
 
 
+
+
     public int getId_partido() {
         return id_partido;
     }
